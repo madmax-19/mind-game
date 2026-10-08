@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YADUNAND Mind Game — a futuristic memory sequence challenge.">
+  <title>MIND GAME // YADUNAND</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <div class="grid"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-mark">Y</span>
+      <span>YADUNAND</span>
+      <small>// MIND GAME</small>
+    </a>
+    <div class="system"><i></i> SYSTEM ONLINE</div>
+    <button class="rank-btn" id="leaderboardButton">LEADERBOARD <span>↗</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><i></i> MEMORY PROTOCOL 01</div>
+        <h1>THINK.<br><em>REPEAT.</em></h1>
+        <p>Watch the sequence. Remember every signal. Repeat it perfectly. Each round adds one more step.</p>
+        <div class="hero-actions">
+          <button class="primary" id="heroStart">PLAY NOW <span>→</span></button>
+          <a class="ghost" href="#how">HOW IT WORKS</a>
+        </div>
+      </div>
+
+      <div class="hero-console">
+        <div class="console-glow"></div>
+        <div class="console">
+          <div class="console-head"><span>MIND_GAME / CORE</span><b><i></i>READY</b></div>
+          <div class="mini-oled">
+            <span>SEQUENCE MEMORY</span>
+            <strong>READY_</strong>
+            <small>AWAITING PLAYER INPUT</small>
+          </div>
+          <div class="mini-pads">
+            <i class="m1"></i><i class="m2"></i><i class="m3"></i><i class="m4"></i>
+          </div>
+          <div class="console-foot"><span>ARDUINO UNO</span><span>SH1106 OLED</span><span>4 INPUTS</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div><span>MODE</span><strong>SEQUENCE</strong></div>
+      <div><span>INPUTS</span><strong>04 SIGNALS</strong></div>
+      <div><span>DIFFICULTY</span><strong>ADAPTIVE</strong></div>
+      <div><span>BEST</span><strong id="bestScore">00</strong></div>
+    </section>
+
+    <section class="game-section" id="game">
+      <div class="section-heading">
+        <div><small>01 / LIVE GAME</small><h2>YOUR <em>TURN.</em></h2></div>
+        <div class="live-pill"><i></i> LIVE SESSION</div>
+      </div>
+
+      <div class="game-shell">
+        <aside class="game-sidebar">
+          <div class="profile">
+            <span>PLAYER</span>
+            <strong id="playerDisplay">GUEST</strong>
+            <small id="sessionCode">SESSION 01</small>
+          </div>
+          <div class="metric"><span>LEVEL</span><strong id="level">01</strong></div>
+          <div class="metric"><span>SCORE</span><strong id="score">00</strong></div>
+          <div class="metric"><span>BEST</span><strong id="bestSide">00</strong></div>
+          <div class="sound-control">
+            <button class="side-action" id="muteButton" type="button">SOUND <b id="soundState">ON</b></button>
+            <label class="volume-control" for="volumeSlider">
+              <span>VOLUME</span>
+              <input id="volumeSlider" type="range" min="0" max="100" value="80" aria-label="Sound volume">
+              <b id="volumeValue">80%</b>
+            </label>
+          </div>
+        </aside>
+
+        <div class="game-board">
+          <div class="device-frame">
+            <div class="device-top"><span>MIND GAME / 001</span><i></i><span>ONLINE</span></div>
+            <div class="oled">
+              <div class="oled-brand">YADUNAND LAB</div>
+              <h3 id="oledTitle">MIND GAME</h3>
+              <p id="oledSub">Press START to begin</p>
+              <div class="oled-dots" id="oledDots"><i></i><i></i><i></i><i></i></div>
+              <strong id="oledScore">SCORE: 00</strong>
+            </div>
+
+            <div class="pads" id="mindPads">
+              <button class="pad pad-0" data-index="0"><span>01</span></button>
+              <button class="pad pad-1" data-index="1"><span>02</span></button>
+              <button class="pad pad-2" data-index="2"><span>03</span></button>
+              <button class="pad pad-3" data-index="3"><span>04</span></button>
+            </div>
+
+            <div class="device-controls">
+              <button class="start-btn" id="startButton">START GAME <span>↗</span></button>
+              <div class="key-help">KEYS <b>1</b><b>2</b><b>3</b><b>4</b></div>
+            </div>
+          </div>
+          <div class="game-status"><span>STATUS</span><strong id="status">READY — PRESS START</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="section-heading"><div><small>02 / PROTOCOL</small><h2>THREE STEPS.<br><em>ONE CHALLENGE.</em></h2></div></div>
+      <div class="steps">
+        <article><b>01</b><h3>WATCH</h3><p>The game flashes a growing sequence of four signals.</p></article>
+        <article><b>02</b><h3>REMEMBER</h3><p>Keep the exact order in your head. The sequence gets longer.</p></article>
+        <article><b>03</b><h3>REPEAT</h3><p>Press the matching pads. One mistake ends the run.</p></article>
+      </div>
+    </section>
+
+    <section class="hardware">
+      <div><small>03 / BUILT WITH</small><h2>FROM <em>HARDWARE</em><br>TO BROWSER.</h2></div>
+      <div class="hardware-grid">
+        <div><span>MCU</span><strong>ARDUINO UNO</strong><p>Game logic, inputs and feedback.</p></div>
+        <div><span>DISPLAY</span><strong>SH1106 OLED</strong><p>128 × 64 visual interface.</p></div>
+        <div><span>FEEDBACK</span><strong>LED + BUZZER</strong><p>Light and audio signals.</p></div>
+        <div><span>INPUT</span><strong>4 PUSH BUTTONS</strong><p>Sequence interaction.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>© 2026 YADUNAND</span><span>BUILD · REMEMBER · REPEAT</span></footer>
+
+  <div class="modal" id="nameModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="nameClose">×</button>
+      <div class="modal-icon">Y</div>
+      <small>PLAYER INITIALIZATION</small>
+      <h2>WHO ARE YOU?</h2>
+      <p>Enter a name for your game session.</p>
+      <input id="playerName" maxlength="20" autocomplete="off" placeholder="Your name">
+      <div class="error" id="nameError"></div>
+      <button class="primary wide" id="nameStart">ENTER THE GAME →</button>
+    </div>
+  </div>
+
+  <div class="modal" id="leaderboardModal" aria-hidden="true">
+    <div class="leader-card">
+      <button class="modal-close" id="leaderboardClose">×</button>
+      <div class="leader-head"><div><small>GLOBAL RANKING</small><h2>TOP PLAYERS</h2></div><span>TOP 10</span></div>
+      <div class="leader-columns"><span>#</span><span>PLAYER</span><span>SCORE</span></div>
+      <div id="leaderboardList"></div>
+      <div class="leader-note">GLOBAL RANKING • Scores are shared through Supabase.</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>

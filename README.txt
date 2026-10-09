@@ -1,45 +1,22 @@
-YADUNAND MIND GAME — CLEAN FIXED BUILD
+YADUNAND MIND GAME — UNIFIED PORTFOLIO UI
 
-This standalone browser game is based on the latest YADUNAND Mind Game UI.
+This build uses the same dark, dimensional violet/cyan design language as the YADUNAND portfolio while preserving the playable memory game.
 
-FIXES:
-- Rebuilt the pad input flow cleanly.
-- Game-over sound is triggered directly from the wrong pad click.
-- Added safer AudioContext resume handling.
-- Added correct-round sound.
-- Prevented duplicate game-over sound.
-- Keyboard 1–4 controls remain supported.
-- Player name and local leaderboard remain supported.
-- No external audio files are required.
+FILES
+- index.html — game page
+- style.css — unified dark violet/cyan styles and responsive layout
+- script.js — game logic, sound controls, local scores, and Supabase leaderboard
+- assets/kick.wav, assets/snare.wav, assets/hihat.wav, assets/tom.wav — local sound samples used by the game
+- supabase-setup.sql — leaderboard table and RPC setup
+- arduino/mind_game.ino — Arduino sketch supplied with the prior game build
 
-FILES:
-index.html
-style.css
-script.js
-arduino/mind_game.ino
+RUN LOCALLY
+Keep all files and the assets/ folder together, then open index.html in a modern browser. The page also loads Google Fonts and Supabase JS from their CDNs when internet access is available.
 
-Open index.html in a modern browser.
+ADD TO YOUR PORTFOLIO
+Upload this folder as a subfolder (for example, /mind-game/) alongside the portfolio homepage. The top-left brand and portfolio link point to ../index.html. Do not overwrite the main portfolio index.html with this game's index.html.
 
+GLOBAL LEADERBOARD
+The supplied project reference is configured as https://fvxbxtucmjqkaitryizv.supabase.co with the supplied publishable key. The leaderboard still requires that the Supabase project exists and that supabase-setup.sql has been run in its SQL Editor. If your project's URL is different, replace SUPABASE_URL at the top of script.js. Use only a publishable/anon key in client-side code; never put a secret or service-role key in the browser.
 
-REAL DRUM PAD SOUNDS
-Pad 1 = kick, Pad 2 = snare, Pad 3 = hi-hat, Pad 4 = tom. Local WAV samples are included in assets/.
-
-
-SOUND CONTROL
-- SOUND ON/OFF button
-- Volume slider from 0% to 100%
-- Volume preference is saved in the browser
-
-
-GLOBAL LEADERBOARD SETUP
-=========================
-1. Create a Supabase project.
-2. Open SQL Editor and run supabase-setup.sql.
-3. Open script.js.
-4. Replace YOUR_SUPABASE_PROJECT_URL with your Supabase Project URL.
-5. Replace YOUR_SUPABASE_PUBLISHABLE_KEY with your Supabase Publishable key.
-6. Keep the publishable key in the browser; NEVER put a Supabase secret/service-role key in this website.
-7. Upload the complete folder to your web host.
-8. The Leaderboard button loads the shared Top 10 from Supabase.
-
-The existing local leaderboard remains as a fallback if Supabase is unavailable.
+The game's four signals remain visually distinct (violet, cyan, yellow, and red) for gameplay, while surrounding components use the same violet/cyan styling as the portfolio.

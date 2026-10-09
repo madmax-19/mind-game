@@ -4,7 +4,7 @@
    and Publishable Key.
 ========================================================= */
 
-const SUPABASE_URL = "fvxbxtucmjqkaitryizv";
+const SUPABASE_URL = "https://fvxbxtucmjqkaitryizv.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_64lo-eRU69A6sQjzCd1i2g_yO82XCOs";
 
 let supabaseClient = null;
@@ -72,7 +72,7 @@ function playDrumSample(name){
 
 let player = localStorage.getItem("YADUNAND_MIND_PLAYER") || "";
 
-const colors = ["#b7ff4a","#64e7ff","#e8f45a","#ff6171"];
+const colors = ["#b48cff","#64e7ff","#e8f45a","#ff6171"];
 const leaderboardKey = "YADUNAND_MIND_SCORES";
 let globalScores = [];
 

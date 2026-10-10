@@ -1,4 +1,4 @@
--- MAD MAX MIND GAME — GLOBAL LEADERBOARD
+-- YADUNAND MIND GAME — GLOBAL LEADERBOARD
 -- Run this entire script in Supabase SQL Editor.
 
 create table if not exists public.mind_game_leaderboard (

@@ -46,7 +46,7 @@ html{scroll-padding-top:90px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.oled h3{animation:none}.pad,.primary,.start-btn{transition:none}}
 
 
-/* Unified MAD MAX portfolio treatment */
+/* Unified YADUNAND portfolio treatment */
 body{
   background:
     radial-gradient(ellipse at 78% 8%, #24133b 0%, transparent 35%),
@@ -108,9 +108,91 @@ body{
 .modal-logo{padding:0;overflow:hidden}
 .modal-logo img{display:block;width:100%;height:100%;object-fit:cover}
 
-/* MAD MAX realistic mouse-reactive liquid background */
-iframe.water-background{
-  position:fixed; inset:0; width:100%; height:100%;
-  border:0; z-index:-3; pointer-events:none; opacity:1;
+
+/* GAME-ONLY UI REFRESH — header, hero, instructions and footer remain unchanged */
+.game-section .game-shell{
+  grid-template-columns: minmax(175px, 205px) minmax(0,1fr);
+  border:1px solid rgba(164,139,255,.2);
+  border-radius:22px;
+  overflow:hidden;
+  background:linear-gradient(135deg,rgba(15,17,30,.97),rgba(6,13,19,.98));
+  box-shadow:0 28px 90px #0008, inset 0 1px #ffffff08;
 }
-body{isolation:isolate;}
+.game-section .game-sidebar{
+  padding:25px 21px;
+  background:linear-gradient(180deg,rgba(164,139,255,.07),rgba(102,232,255,.025));
+  border-right:1px solid rgba(164,139,255,.15);
+}
+.game-section .profile{padding-bottom:22px;border-bottom-color:#ffffff12}
+.game-section .profile>span,.game-section .metric>span{font-size:9px;letter-spacing:.17em;color:#8f91ad}
+.game-section .profile strong{font-size:19px;letter-spacing:.02em}
+.game-section .metric{padding:19px 0;border-bottom-color:#ffffff12}
+.game-section .metric strong{font-size:34px;line-height:1;color:#c0a6ff;text-shadow:0 0 24px #b48cff18}
+.game-section .sound-control{padding-top:3px}
+.game-section .side-action{border-radius:9px;border-color:#ffffff17;padding:12px;background:#ffffff04;color:#c4c1d9;font-size:9px;letter-spacing:.08em}
+.game-section .side-action b{color:#67e8f9}
+.game-section .volume-control{font-size:9px;color:#9294b0}
+.game-section .game-board{padding:clamp(18px,3vw,42px);min-width:0}
+.game-section .device-frame{
+  max-width:760px;padding:clamp(17px,2.4vw,30px);border-radius:25px;
+  border:1px solid rgba(164,139,255,.26);
+  background:radial-gradient(ellipse at 50% 0%,rgba(164,139,255,.09),transparent 52%),linear-gradient(145deg,#111421,#080c13 72%);
+  box-shadow:inset 0 1px #ffffff0b,0 24px 70px #0007;
+}
+.game-section .device-top{align-items:center;margin-bottom:22px;color:#8c8ca8;font-size:9px;letter-spacing:.15em}
+.game-section .device-top i{width:7px;height:7px;background:#6ae7f8;box-shadow:0 0 15px #6ae7f8}
+.game-section .oled{
+  position:relative;overflow:hidden;min-height:158px;padding:22px 16px;
+  border:1px solid rgba(102,232,255,.2);border-radius:16px;
+  background:radial-gradient(ellipse at 50% 0%,#18273a 0%,#0a111b 58%,#080d14 100%);
+  box-shadow:inset 0 0 45px #66e8ff08,0 12px 30px #0003;
+}
+.game-section .oled:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.24;background:linear-gradient(transparent 49%,#66e8ff0a 50%,transparent 51%);background-size:100% 5px}
+.game-section .oled-brand{color:#8c8fb5;font-size:8px;letter-spacing:.22em}
+.game-section .oled h3{font-size:clamp(24px,3vw,34px);letter-spacing:-.04em;color:#c5a8ff;margin:10px 0 7px;text-shadow:0 0 25px #b48cff38}
+.game-section .oled p{font-size:10px;color:#9ca8c6;letter-spacing:.04em}
+.game-section .oled strong{color:#6ce8f8;font-size:10px;letter-spacing:.1em}
+.game-section .oled-dots i{width:6px;height:6px;background:#34364d}
+.game-section .oled-dots i.active{background:#b48cff;box-shadow:0 0 12px #b48cff}
+.game-section .pads{max-width:510px;gap:14px;margin:24px auto 22px}
+.game-section .pad{
+  min-width:0;height:clamp(112px,13vw,150px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+  border-radius:20px;border:1px solid #ffffff12;
+  background:#101522;box-shadow:inset 0 1px #ffffff0a,inset 0 -18px 35px #0004,0 12px 25px #0003;
+  isolation:isolate;
+}
+.game-section .pad:after{inset:7px;border-radius:14px;border-color:#ffffff0b;z-index:-1}
+.game-section .pad-icon{width:42px;height:42px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .22s ease,filter .22s ease}
+.game-section .pad-icon .icon-dot{fill:currentColor;stroke:none}
+.game-section .pad span{display:flex;align-items:center;gap:9px;color:#d2d4e8;font:700 10px "Space Grotesk",sans-serif;letter-spacing:.12em}
+.game-section .pad span small{font:8px monospace;color:#777f9b;letter-spacing:.08em}
+.game-section .pad-0{color:#bd9cff;border-color:#b48cff35;background:radial-gradient(ellipse at 50% 32%,#b48cff20,transparent 65%),#101522}
+.game-section .pad-1{color:#66e8ff;border-color:#66e8ff35;background:radial-gradient(ellipse at 50% 32%,#66e8ff1d,transparent 65%),#101522}
+.game-section .pad-2{color:#d9ef78;border-color:#d9ef7835;background:radial-gradient(ellipse at 50% 32%,#d9ef781a,transparent 65%),#101522}
+.game-section .pad-3{color:#ff8297;border-color:#ff829735;background:radial-gradient(ellipse at 50% 32%,#ff82971b,transparent 65%),#101522}
+.game-section .pad:not(:disabled):hover .pad-icon{transform:translateY(-2px) scale(1.08);filter:drop-shadow(0 0 8px currentColor)}
+.game-section .pad-0.active{color:#fff;background:linear-gradient(145deg,#9d77f3,#7551ca);box-shadow:0 0 42px #b48cff7a,inset 0 1px #ffffff70}
+.game-section .pad-1.active{color:#06121b;background:linear-gradient(145deg,#7af0ff,#36bcd7);box-shadow:0 0 42px #66e8ff75,inset 0 1px #ffffff90}
+.game-section .pad-2.active{color:#11150a;background:linear-gradient(145deg,#edff9a,#b6d85a);box-shadow:0 0 42px #d9ef7875,inset 0 1px #ffffff90}
+.game-section .pad-3.active{color:#1b080e;background:linear-gradient(145deg,#ff9bad,#ed526f);box-shadow:0 0 42px #ff829775,inset 0 1px #ffffff90}
+.game-section .pad.active span,.game-section .pad.active span small{color:inherit}
+.game-section .device-controls{gap:15px}
+.game-section .start-btn{min-height:51px;padding:16px 20px;border-radius:10px;background:linear-gradient(100deg,#b48cff,#8e9dff 65%,#66e8ff);border:0;color:#101020;font-size:10px;letter-spacing:.14em;box-shadow:0 8px 28px #8d83ff22}
+.game-section .start-btn:hover{background:linear-gradient(100deg,#c5a8ff,#a3afff 65%,#83efff);box-shadow:0 10px 35px #8d83ff38}
+.game-section .key-help{display:flex;align-items:center;gap:4px;white-space:nowrap;color:#8589a5}
+.game-section .key-help b{border-radius:5px;border-color:#ffffff18;color:#b5bad2;margin:0;width:24px;height:25px}
+.game-section .game-status{max-width:760px;margin-top:16px;color:#8589a5;font-size:9px;letter-spacing:.08em}
+.game-section .game-status strong{color:#6ce8f8}
+.game-section .modal-icon{border-radius:12px;background:linear-gradient(145deg,#b48cff1e,#66e8ff12);border-color:#b48cff60}
+.game-section .modal-icon svg{width:28px;height:28px;fill:none;stroke:#c4a8ff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:850px){.game-section .game-shell{grid-template-columns:1fr}.game-section .game-sidebar{grid-template-columns:2fr 1fr 1fr;gap:16px;border-right:0;border-bottom:1px solid rgba(164,139,255,.15)}.game-section .profile{grid-column:auto}.game-section .sound-control{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}.game-section .sound-control .side-action{margin:0}.game-section .volume-control{margin:0}.game-section .game-board{padding:22px}}
+@media(max-width:560px){.game-section .game-sidebar{grid-template-columns:1fr 1fr;gap:14px}.game-section .profile{grid-column:1/-1}.game-section .metric{padding:8px 0}.game-section .sound-control{grid-template-columns:1fr}.game-section .device-frame{padding:14px;border-radius:19px}.game-section .oled{min-height:140px}.game-section .pads{gap:9px;margin:17px auto}.game-section .pad{height:112px;border-radius:15px;gap:7px}.game-section .pad-icon{width:34px;height:34px}.game-section .pad span{font-size:8px}.game-section .device-controls{flex-direction:column;align-items:stretch}.game-section .start-btn{width:100%}.game-section .key-help{justify-content:center}.game-section .game-status{gap:10px;font-size:8px}}
+
+
+/* Shared MAD MAX portfolio liquid background — background only */
+body { isolation: isolate; background: #080a09 !important; }
+.water-background { position: fixed; inset: 0; display: block; width: 100%; height: 100%; border: 0; z-index: -1; pointer-events: none; opacity: .72; mix-blend-mode: screen; background: #000; }
+.ambient, .grid { z-index: -1; }
+.topbar, main, footer { position: relative; z-index: 1; }
+.topbar { background: rgba(5,7,6,.72); }
+@media (prefers-reduced-motion: reduce) { .water-background { opacity: .45; } }

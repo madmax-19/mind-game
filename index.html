@@ -3,15 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MAD MAX Mind Game — a futuristic memory sequence challenge.">
+  <meta name="description" content="YADUNAND Mind Game — a futuristic memory sequence challenge.">
   <meta name="theme-color" content="#080a09">
-  <title>MAD MAX — MIND GAME</title>
+  <title>MIND GAME // MAD MAXX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/favicon.png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .brand .brand-logo {
+      display:block;
+      width:36px;
+      height:36px;
+      object-fit:cover;
+      border-radius:5px;
+      flex-shrink:0;
+      border:1px solid rgba(255,255,255,.2);
+      box-shadow:0 0 18px rgba(255,255,255,.07);
+    }
+    .brand .brand-mark { display:none; }
+    @media (max-width:560px) {
+      .brand .brand-logo { width:30px; height:30px; }
+    }
+  </style>
 </head>
 <body>
   <iframe class="water-background" src="water-background.html" title="" aria-hidden="true" tabindex="-1"></iframe>
@@ -20,9 +36,9 @@
   <div class="grid"></div>
 
   <header class="topbar">
-    <a class="brand" href="https://madmax-19.github.io/portfolio/index.html" aria-label="Back to MAD MAX portfolio" title="Back to portfolio">
+    <a class="brand" href="https://madmax-19.github.io/portfolio/index.html" aria-label="Back to YADUNAND portfolio" title="Back to portfolio">
       <img class="brand-logo" src="assets/mad-maxx-mark.jpg" alt="MAD MAXX logo">
-      <span>MAD MAX</span>
+      <span>YADUNAND</span>
       <small>// MIND GAME</small>
     </a>
     <a class="system" href="https://madmax-19.github.io/portfolio/index.html" aria-label="Return to portfolio" title="Return to portfolio"><i></i> PORTFOLIO / SYSTEM ONLINE</a>
@@ -95,7 +111,7 @@
           <div class="device-frame">
             <div class="device-top"><span>MIND GAME / 001</span><i></i><span>ONLINE</span></div>
             <div class="oled">
-              <div class="oled-brand">MAD MAX LAB</div>
+              <div class="oled-brand">YADUNAND LAB</div>
               <h3 id="oledTitle">MIND GAME</h3>
               <p id="oledSub">Press START to begin</p>
               <div class="oled-dots" id="oledDots"><i></i><i></i><i></i><i></i></div>
@@ -103,10 +119,10 @@
             </div>
 
             <div class="pads" id="mindPads">
-              <button class="pad pad-0" data-index="0"><span>01</span></button>
-              <button class="pad pad-1" data-index="1"><span>02</span></button>
-              <button class="pad pad-2" data-index="2"><span>03</span></button>
-              <button class="pad pad-3" data-index="3"><span>04</span></button>
+              <button class="pad pad-0" data-index="0" aria-label="Violet orbit pad"><svg class="pad-icon icon-orbit" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="14"/><ellipse cx="24" cy="24" rx="21" ry="8" transform="rotate(-35 24 24)"/><circle cx="35" cy="13" r="3" class="icon-dot"/></svg><span>ORBIT <small>01</small></span></button>
+              <button class="pad pad-1" data-index="1" aria-label="Cyan pulse pad"><svg class="pad-icon icon-pulse" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 26h9l5-13 9 24 6-15h9"/><circle cx="24" cy="24" r="21"/></svg><span>PULSE <small>02</small></span></button>
+              <button class="pad pad-2" data-index="2" aria-label="Lime prism pad"><svg class="pad-icon icon-prism" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 43 15v18L24 44 5 33V15Z"/><path d="m5 15 19 11 19-11M24 26v18"/></svg><span>PRISM <small>03</small></span></button>
+              <button class="pad pad-3" data-index="3" aria-label="Coral flare pad"><svg class="pad-icon icon-flare" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3 29 18 45 12 35 25 46 35 30 34 24 46 18 34 2 35 13 25 3 12 19 18Z"/><circle cx="24" cy="25" r="5"/></svg><span>FLARE <small>04</small></span></button>
             </div>
 
             <div class="device-controls">
@@ -139,12 +155,12 @@
     </section>
   </main>
 
-  <footer><span>© 2026 MAD MAX</span><span>BUILD · REMEMBER · REPEAT</span></footer>
+  <footer><span>© 2026 YADUNAND</span><span>BUILD · REMEMBER · REPEAT</span></footer>
 
   <div class="modal" id="nameModal" aria-hidden="true">
     <div class="modal-card">
       <button class="modal-close" id="nameClose">×</button>
-      <div class="modal-icon modal-logo"><img src="assets/mad-maxx-mark.jpg" alt="MAD MAXX logo"></div>
+      <div class="modal-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 25V7l8 10 4-5 4 5 8-10v18"/><path d="M12 25l4-6 4 6"/></svg></div>
       <small>PLAYER INITIALIZATION</small>
       <h2>WHO ARE YOU?</h2>
       <p>Enter a name for your game session.</p>

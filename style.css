@@ -46,7 +46,7 @@ html{scroll-padding-top:90px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.oled h3{animation:none}.pad,.primary,.start-btn{transition:none}}
 
 
-/* Unified YADUNAND portfolio treatment */
+/* Unified MAD MAX portfolio treatment */
 body{
   background:
     radial-gradient(ellipse at 78% 8%, #24133b 0%, transparent 35%),
@@ -86,3 +86,31 @@ body{
   .steps article,.hardware-grid>div{transition:background .25s ease}
 }
 @media(prefers-reduced-motion:reduce){.console{transition:none!important}}
+
+
+/* MAD MAXX logo integration */
+.brand-logo{
+  display:block;
+  width:36px;
+  height:36px;
+  object-fit:cover;
+  object-position:center;
+  border:1px solid #ffffff25;
+  border-radius:4px;
+  box-shadow:0 0 18px #ffffff0a;
+  flex:0 0 auto;
+}
+.brand{gap:10px}
+@media(max-width:560px){
+  .brand-logo{width:31px;height:31px}
+}
+
+.modal-logo{padding:0;overflow:hidden}
+.modal-logo img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* MAD MAX realistic mouse-reactive liquid background */
+iframe.water-background{
+  position:fixed; inset:0; width:100%; height:100%;
+  border:0; z-index:-3; pointer-events:none; opacity:1;
+}
+body{isolation:isolate;}

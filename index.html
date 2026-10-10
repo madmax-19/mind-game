@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="YADUNAND Mind Game — a futuristic memory sequence challenge.">
+  <meta name="description" content="MAD MAX Mind Game — a futuristic memory sequence challenge.">
   <meta name="theme-color" content="#080a09">
-  <title>MIND GAME </title>
+  <title>MAD MAX — MIND GAME</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <iframe class="water-background" src="water-background.html" title="" aria-hidden="true" tabindex="-1"></iframe>
   <div class="ambient ambient-a"></div>
   <div class="ambient ambient-b"></div>
   <div class="grid"></div>
 
   <header class="topbar">
-    <a class="brand" href="https://madmax-19.github.io/portfolio/index.html" aria-label="Back to YADUNAND portfolio" title="Back to portfolio">
-      <span class="brand-mark">Y</span>
-      <span>YADUNAND</span>
+    <a class="brand" href="https://madmax-19.github.io/portfolio/index.html" aria-label="Back to MAD MAX portfolio" title="Back to portfolio">
+      <img class="brand-logo" src="assets/mad-maxx-mark.jpg" alt="MAD MAXX logo">
+      <span>MAD MAX</span>
       <small>// MIND GAME</small>
     </a>
     <a class="system" href="https://madmax-19.github.io/portfolio/index.html" aria-label="Return to portfolio" title="Return to portfolio"><i></i> PORTFOLIO / SYSTEM ONLINE</a>
@@ -92,7 +95,7 @@
           <div class="device-frame">
             <div class="device-top"><span>MIND GAME / 001</span><i></i><span>ONLINE</span></div>
             <div class="oled">
-              <div class="oled-brand">YADUNAND LAB</div>
+              <div class="oled-brand">MAD MAX LAB</div>
               <h3 id="oledTitle">MIND GAME</h3>
               <p id="oledSub">Press START to begin</p>
               <div class="oled-dots" id="oledDots"><i></i><i></i><i></i><i></i></div>
@@ -136,12 +139,12 @@
     </section>
   </main>
 
-  <footer><span>© 2026 YADUNAND</span><span>BUILD · REMEMBER · REPEAT</span></footer>
+  <footer><span>© 2026 MAD MAX</span><span>BUILD · REMEMBER · REPEAT</span></footer>
 
   <div class="modal" id="nameModal" aria-hidden="true">
     <div class="modal-card">
       <button class="modal-close" id="nameClose">×</button>
-      <div class="modal-icon">Y</div>
+      <div class="modal-icon modal-logo"><img src="assets/mad-maxx-mark.jpg" alt="MAD MAXX logo"></div>
       <small>PLAYER INITIALIZATION</small>
       <h2>WHO ARE YOU?</h2>
       <p>Enter a name for your game session.</p>
@@ -163,5 +166,35 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="script.js"></script>
+
+<script id="water-pointer-relay">
+(() => {
+  const frame = document.querySelector('iframe.water-background');
+  if (!frame) return;
+  let lastX = null, lastY = null, lastT = 0, down = false;
+  const send = (e, isDown = down) => {
+    const w = window.innerWidth || 1, h = window.innerHeight || 1;
+    const now = performance.now();
+    const x = e.clientX / w, y = e.clientY / h;
+    const dt = Math.max(8, now - (lastT || now));
+    const vx = lastX == null ? 0 : (x - lastX) / dt * 16.7;
+    const vy = lastY == null ? 0 : (y - lastY) / dt * 16.7;
+    frame.contentWindow?.postMessage({
+      type: 'water-pointer', x, y, vx, vy,
+      moving: lastX != null && Math.hypot(x - lastX, y - lastY) > 0.0008,
+      active: true, down: isDown
+    }, '*');
+    lastX = x; lastY = y; lastT = now;
+  };
+  window.addEventListener('pointermove', e => send(e), { passive: true });
+  window.addEventListener('pointerdown', e => { down = true; send(e, true); }, { passive: true });
+  window.addEventListener('pointerup', e => { down = false; send(e, false); }, { passive: true });
+  window.addEventListener('pointerleave', () => {
+    frame.contentWindow?.postMessage({ type: 'water-pointer', x: lastX ?? .5, y: lastY ?? .5, active: false, moving: false }, '*');
+    lastX = lastY = null; lastT = 0;
+  });
+})();
+</script>
+
 </body>
 </html>
